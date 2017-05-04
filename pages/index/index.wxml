@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
 	<view class="indexHeader">
+		<text>快捷投保</text><text style="padding-left: 20px;">闪电出单</text>
 	</view>
 </view>
