@@ -50,7 +50,7 @@
       </view>
       <view class="col_bd">
         <lable class="lbNormal">大型汽车</lable>
-        <lable class="lbActivity">小型汽车</lable>
+        <lable class="lbNormal active">小型汽车</lable>
       </view>
     </view>
     <view class="item" style="border-bottom:0">

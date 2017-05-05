@@ -1,6 +1,101 @@
 <view class="container">
-	<view class="section">
+	<view class="wrapper">
+	    <view class="item">
+	      <view class="col_hd">
+	        报价品牌
+	      </view>
+	      <view class="col_bd">
+	        <image src="{{companyUrl}}" mode="widthFix" style="width: 150px"></image>
+	      </view>
+	    </view>
+	    <view class="item">
+	      <view class="col_hd">
+	        投保城市<text style="font-size:12px;">（目前暂支持上海）</text>
+	      </view>
+	      <view class="col_bd">
+	        {{city}}
+	      </view>
+	    </view>
+    </view>
+    <view class="wrapper">
+	    <view class="item">
+	      <view class="col_hd">
+	        车牌号
+	      </view>
+	      <view class="col_bd">
+	        <input type="text" maxlength="10" placeholder="请输入车牌号"/>
+	      </view>
+	    </view>
+	    <view class="item">
+	      <view class="col_hd">
+	        车主名称
+	      </view>
+	      <lable class="lbNormal" style="display: inline-block;">个人</lable>
+          <lable class="lbNormal active" style="display: inline-block;">企业</lable>
+	      <view class="col_bd">
+	        <input type="text" placeholder="请输入车主名称"/>
+	      </view>
+	    </view>
+	    <view class="item">
+	      <view class="col_hd">
+	        证件号码
+	      </view>
+	      <view class="col_bd">
+	        <input type="text" maxlength="50" placeholder="请输入身份证号"/>
+	      </view>
+	    </view>
+	    <view class="item">
+	      <view class="col_hd">
+	        手机号
+	      </view>
+	      <view class="col_bd">
+	        <input type="number" maxlength="11" placeholder="请输入手机号"/>
+	      </view>
+	    </view>
 	</view>
-	<view class="section">
+	<view class="wrapper">
+		<view class="item">
+	      <view class="col_hd">
+	        起保日期
+	      </view>
+	      <view class="col_bd">
+	        <picker mode="date" value="{{startDate}}" bindchange="bindStartDateChange">
+			    <view class="picker">
+			      {{startDate}}
+			    </view>
+			</picker>
+	      </view>
+	      <view class="navigator-arrow"></view>
+	    </view>
+	</view>
+	<view class="wrapper">
+		<view class="item">
+			<view class="col_hd">
+			是否过户车
+		    </view>
+		    <view class="showDescrible">
+		    ?
+			</view>
+		    <view class="col_bd">
+		    	<switch bindchange="switchChange"/>
+		    </view>
+		</view>
+		<view wx:if="{{isTransfered}}" class="item">
+	      <view class="col_hd">
+	        过户日期
+	      </view>
+	      <view class="col_bd">
+	        <picker mode="date" value="{{transferDate}}" bindchange="bindTransferDateChange">
+			    <view class="picker">
+			      {{transferDate}}
+			    </view>
+			</picker>
+	      </view>
+	      <view class="navigator-arrow"></view>
+	    </view>
+	</view>
+
+	<view style="width:100%;padding: 20px 0">
+	    <button bindtap="saveInfosAndNext" class="btn">立即报价</button>
 	</view>
 </view>

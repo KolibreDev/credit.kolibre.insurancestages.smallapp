@@ -1,9 +1,11 @@
 page {
   background-color: #F8F8F8;
 }
-.section {
-	background: #fff;
-	margin-top: 20rpx;
-	width: 100%;
-	padding: 0 30rpx;
+.showDescrible{
+	padding: 4rpx 16rpx;
+	border: 1px solid #ef8200;
+	border-radius: 100%;
+	color: #ef8200;
+	text-align: center;
+	margin-left: 10rpx;
 }
