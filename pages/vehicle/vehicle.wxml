@@ -1,0 +1,72 @@
+<view class="container">
+  <view class="wrapper">
+    <view class="item">
+      <view class="col_hd">
+        车架号
+      </view>
+      <view class="col_bd">
+        <input type="text" placeholder="请输入车架号"/>
+      </view>
+    </view>
+    <view class="item">
+      <view class="col_hd">
+        发动机号
+      </view>
+      <view class="col_bd">
+        <input type="text" placeholder="请输入发动机号"/>
+      </view>
+    </view>
+    <view class="item">
+      <view class="col_hd">
+        初登日期
+      </view>
+      <view class="col_bd">
+        <picker mode="date" name="leaseStartTime" style="text-align:right;padding-right:15px" value="{{leaseStartTime}}" bindchange="bindLeaseStartTime">
+          <view class="picker">
+            {{leaseStartTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="item">
+      <view class="col_hd">
+        品牌型号
+      </view>
+      <view class="col_bd">
+        <input type="text" placeholder="请输入品牌型号"/>
+      </view>
+    </view>
+    <view class="item">
+      <view class="col_hd">
+        车型编码
+      </view>
+      <view class="col_bd">
+        <input type="text" placeholder="请输入车型编号"/>
+      </view>
+    </view>
+    <view class="item">
+      <view class="col_hd">
+        车辆类型
+      </view>
+      <view class="col_bd">
+        <lable class="lbNormal">大型汽车</lable>
+        <lable class="lbActivity">小型汽车</lable>
+      </view>
+    </view>
+    <view class="item" style="border-bottom:0">
+      <view class="col_hd">
+        使用性质
+      </view>
+      <view class="col_bd">
+        <picker bindchange="bindPickerChange" value="{{useArray[index].code}}" range="{{useArray}}" range-key="desc">
+          <view class="picker">
+            {{useArray[index].desc}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view style="width:100%;padding: 20px 0">
+    <button class="btn">确认</button>
+  </view>
+</view>
