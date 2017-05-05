@@ -3,12 +3,13 @@
     "pages/scheme/scheme",
     "pages/vehicle/vehicle",
     "pages/index/index",
+    "pages/offerPriceBasic/offerPriceBasic",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "擎天猪",
-    "navigationBarTextStyle":"#333333"
+    "navigationBarTextStyle":"black"
   }
 }
