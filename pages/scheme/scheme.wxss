@@ -1,0 +1,58 @@
+page {
+  background-color: #f4f4f4;
+}
+swiper {
+  height: 445px;
+}
+swiper-item {
+  width: 100%;
+  display: block;
+}
+.wrapper {
+  margin-right: 40px;
+  margin-left: 40px;
+  height: 440px;
+  background-color: white;
+  box-shadow: 0 8px 19px 0 rgba(104, 76, 36, 0.15);
+  border-radius: 10px;
+}
+.wrapper .item {
+  margin-top: 20px;
+  padding: 0 20px;
+  font-size: 16px;
+  text-align: right;
+  color:#999999;
+}
+span {
+  color: #f19a23;
+  float: left;
+}
+label {
+  color: #666666;
+  float: left;
+}
+
+.tip {
+  background: rgba(255, 140, 20, 0.10);
+  border: 1px solid #fba024;
+  border-radius: 56px;
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+  color: #fba024
+}
+
+.wx-swiper-dot::before{
+  font-size: 100rpx;
+  color: #a10;
+  margin-top: 20px;
+}
+
+
+.wx-swiper-dot-active::before{
+  font-size: 100rpx;
+  color: #fff;
+}
