@@ -1,6 +1,7 @@
 const util = require('../../utils/util');
 Page({
   data: {
+  	isTransferInfosShow: false,
   	isTransfered: false,
   	companyUrl: '',
   	companyCode: '',
@@ -25,6 +26,17 @@ Page({
     	companyCode: options.company,
       	companyUrl: imgUrl
     })
+  },
+  showDescribleInfos: function(e) {
+  	var that = this;
+  	that.setData({
+    	isTransferInfosShow:  true
+    })
+    setTimeout(function() {
+    	that.setData({
+	    	isTransferInfosShow:  false
+	    })
+    }, 2000);
   },
   switchChange: function (e){
     this.setData({

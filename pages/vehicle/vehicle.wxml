@@ -21,12 +21,13 @@
         初登日期
       </view>
       <view class="col_bd">
-        <picker mode="date" name="leaseStartTime" style="text-align:right;padding-right:15px" value="{{leaseStartTime}}" bindchange="bindLeaseStartTime">
+        <picker mode="date" name="leaseStartTime" style="text-align:right;" value="{{leaseStartTime}}" bindchange="bindLeaseStartTime">
           <view class="picker">
             {{leaseStartTime}}
           </view>
         </picker>
       </view>
+      <view class="navigator-arrow"></view>
     </view>
     <view class="item">
       <view class="col_hd">
@@ -64,6 +65,7 @@
           </view>
         </picker>
       </view>
+      <view class="navigator-arrow"></view>
     </view>
   </view>
   <view style="width:100%;padding: 20px 0">

@@ -69,15 +69,16 @@
 	    </view>
 	</view>
 	<view class="wrapper">
-		<view class="item">
+		<view class="item" style="position: relative;">
 			<view class="col_hd">
 			是否过户车
 		    </view>
-		    <view class="showDescrible">
-		    ?
+			<image mode="widthFix" style="width: 64rpx; margin-left: 10rpx;" bindtap="showDescribleInfos" src="../../images/ic_question.png" bindtap="showDescribleInfos"></image>
+			<view hidden="{{!isTransferInfosShow}}" class="discribleInfosContent">
+				什么情况下选过户车？若车辆发生所有权变更登记（即过户行为）后，首次使用最新车辆信息投保车险时，请选择过户车！
 			</view>
 		    <view class="col_bd">
-		    	<switch bindchange="switchChange"/>
+		    	<switch color="#fba024" bindchange="switchChange"/>
 		    </view>
 		</view>
 		<view wx:if="{{isTransfered}}" class="item">

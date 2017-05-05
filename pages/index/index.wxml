@@ -3,7 +3,7 @@
 	<view class="indexHeader">
 		<image mode="widthFix" src="../../images/bg_index.png"></image>
 		<text>快捷投保</text><text style="padding-left: 20px;">闪电出单</text>
-		<view class="subSloganText">一键分期  0手续费</view>
+		<view class="subSloganText">车险分期  0手续费</view>
 	</view>
 	<view class="navigatorsList">
 		<navigator url="../offerPriceBasic/offerPriceBasic?company=PICC">

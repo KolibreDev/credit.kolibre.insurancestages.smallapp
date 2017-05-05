@@ -1,11 +1,15 @@
 page {
   background-color: #F8F8F8;
 }
-.showDescrible{
-	padding: 4rpx 16rpx;
-	border: 1px solid #ef8200;
-	border-radius: 100%;
-	color: #ef8200;
-	text-align: center;
-	margin-left: 10rpx;
+.discribleInfosContent {
+	position: absolute;
+	padding: 26rpx 30rpx;
+	width: 380rpx;
+	background:rgba(0,0,0,0.70);
+	border-radius:4px;
+	font-size:14px;
+	color:#ffffff;
+	left: 200rpx;
+	top: -20rpx;
+	z-index: 10;
 }
