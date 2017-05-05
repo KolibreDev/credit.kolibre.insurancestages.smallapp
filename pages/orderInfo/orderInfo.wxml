@@ -1,0 +1,66 @@
+<view class="container">
+	<view class="normalHeader">
+		<view class="leftHeader">
+			<view class="icon">
+				<view class="iconBackground">
+					<image mode="widthFix" src="../../images/pinpai.png"></image>
+				</view>
+			</view>
+			<view>一汽丰田</view>
+			<view>沪A.RM1024</view>
+		</view>
+		<view class="rightHeader">
+			<view style="margin-bottom: 30rpx;">
+				<view style="width: 140rpx; display: inline-block;">车架号</view>
+				<text>6L123405066723343</text>
+			</view>
+			<view style="margin-bottom: 30rpx;">
+				<view style="width: 140rpx; display: inline-block;">车架号</view>
+				<text>6L123405066723343</text>
+			</view>
+			<view style="margin-bottom: 30rpx;">
+				<view style="width: 140rpx; display: inline-block;">车架号</view>
+				<text>6L123405066723343</text>
+			</view>
+		</view>
+	</view>
+	<view class="wrapper" style="margin-top: 0; padding-bottom: 40rpx;">
+		<view class="userInfo">
+			<view class="halfTextArray">
+				<image src="../../images/ic_name_hl.png" style="vertical-align: middle;"></image>
+				<text style="vertical-align: middle;">王志锐</text>
+			</view>
+			<view class="halfTextArray">
+				<image src="../../images/ic_phone_hl.png" style="vertical-align: middle;"></image>
+				<text style="vertical-align: middle;">18888865339</text>
+			</view>
+		</view>
+		<view class="userInfo">
+			<image src="../../images/ic_card_hl.png" style="vertical-align: middle;"></image>
+			<text style="vertical-align: middle;">41123423456678999</text>
+		</view>
+	</view>
+	<view class="wrapper">
+			<view class="kind-list">
+		      <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+		        <view class="kind-list-item">
+		          <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+		            <view class="kind-list-text">{{item.name}}</view>
+		            <image class="kind-list-img" src="resources/kind/{{item.id}}.png"></image>
+		          </view>
+		          <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+		            <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
+		              <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+		                <navigator url="pages/{{page}}/{{page}}" class="navigator">
+		                  <view class="navigator-text">{{page}}</view>
+		                  <view class="navigator-arrow"></view>
+		                </navigator>
+		              </block>
+		            </view>
+		          </view>
+		        </view>
+		      </block>
+		    </view>
+	</view>
+
+</view>

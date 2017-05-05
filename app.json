@@ -1,10 +1,10 @@
 {
   "pages":[
+    "pages/orderInfo/orderInfo",
     "pages/index/index",
     "pages/scheme/scheme",
     "pages/vehicle/vehicle",
-    "pages/offerPriceBasic/offerPriceBasic",
-    "pages/logs/logs"
+    "pages/offerPriceBasic/offerPriceBasic"
   ],
   "window":{
     "backgroundTextStyle":"light",
