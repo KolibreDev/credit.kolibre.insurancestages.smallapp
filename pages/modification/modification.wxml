@@ -1,0 +1,367 @@
+<view class="container">
+	<view class="normalHeader">
+		<view class="leftHeader">
+			<view class="icon">
+				<view class="iconBackground">
+					<image mode="widthFix" src="../../images/pinpai.png"></image>
+				</view>
+			</view>
+			<view>一汽丰田</view>
+			<view>沪A.RM1024</view>
+		</view>
+		<view class="rightHeader">
+			<view  style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; height: 168rpx;">
+				<view style="">
+					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">车架号</view>
+					<text>6L123405066723343</text>
+				</view>
+				<view style="">
+					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">发动机号</view>
+					<text>6L123405066723343</text>
+				</view>
+				<view style="">
+					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">初登日期</view>
+					<text>2015.12.25</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="wrapper" style="margin-top: 0; padding-bottom: 40rpx;">
+		<view class="userInfo">
+			<view class="halfTextArray">
+				<image src="../../images/ic_name_hl.png" style="vertical-align: middle;"></image>
+				<text style="vertical-align: middle;">王志锐</text>
+			</view>
+			<view class="halfTextArray">
+				<image src="../../images/ic_phone_hl.png" style="vertical-align: middle;"></image>
+				<text style="vertical-align: middle;">18888865339</text>
+			</view>
+		</view>
+		<view class="userInfo">
+			<image src="../../images/ic_card_hl.png" style="vertical-align: middle;"></image>
+			<text style="vertical-align: middle;">41123423456678999</text>
+		</view>
+	</view>
+	<view class="wrapper">
+		<view class="wrapperTitle">
+			<image class="kind-list-img" src="../../images/ic_subtitle_shang.png"></image>
+	        <view class="kind-list-text">商业险</view>
+		</view>
+		<view class="item itemNoBorder">
+	      <view class="col_hd">起保日期</view>
+	      <view class="col_bd">
+	        <picker mode="date" value="{{startDate}}" bindchange="bindStartDateChange">
+			    <view class="picker">
+			      {{startDate}}
+			    </view>
+			</picker>
+	      </view>
+	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
+	    </view>
+	    <view class="item itemNoBorder">
+	      <view class="col_hd">结束日期</view>
+	      <view class="col_bd">
+	        <picker mode="date" value="{{startDate}}" bindchange="bindStartDateChange">
+			    <view class="picker">
+			      {{startDate}}
+			    </view>
+			</picker>
+	      </view>
+	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
+	    </view>
+	    <view class="littleTitle">商业基本险</view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">机动车损失险</view>
+	    	<view class="toggleCol" id="CLSSX_MP" bindtap="mpChange">
+		        <view class="MP {{ insurances.CLSSX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="CLSSX" bindchange="bindPickerChange" value="{{insurances.CLSSX.index}}" range="{{insurances.CLSSX.list}}">
+			    <view class="picker">
+			    	{{insurances.CLSSX.list[insurances.CLSSX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">全车盗抢险</view>
+	    	<view class="toggleCol" id="QCDQX_MP" bindtap="mpChange">
+		        <view class="MP {{ insurances.QCDQX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="QCDQX" bindchange="bindPickerChange" value="{{insurances.QCDQX.index}}" range="{{insurances.QCDQX.list}}">
+			    <view class="picker">
+			    	{{insurances.QCDQX.list[insurances.QCDQX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">商业第三者责任险</view>
+	    	<view class="toggleCol" id="DSZZRX_MP" bindtap="mpChange">
+		        <view class="MP {{ insurances.DSZZRX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="DSZZRX" bindchange="bindPickerChange" value="{{insurances.DSZZRX.index}}" range="{{insurances.DSZZRX.list}}">
+			    <view class="picker">
+			    	{{insurances.DSZZRX.list[insurances.DSZZRX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">驾驶员责任险</view>
+	    	<view class="toggleCol" id="JSYZRX_MP" bindtap="mpChange" >
+		        <view class="MP {{ insurances.JSYZRX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="JSYZRX" bindchange="bindPickerChange" value="{{insurances.JSYZRX.index}}" range="{{insurances.JSYZRX.list}}">
+			    <view class="picker">
+			    	{{insurances.JSYZRX.list[insurances.JSYZRX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+		<view class="threeColumnItem">
+	    	<view class="labelCol">车上乘客责任险</view>
+	    	<view class="toggleCol" id="CSCKX_MP" bindtap="mpChange" >
+		        <view class="MP {{ insurances.CSCKX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="CSCKX" bindchange="bindPickerChange" value="{{insurances.CSCKX.index}}" range="{{insurances.CSCKX.list}}">
+			    <view class="picker">
+			    	{{insurances.CSCKX.list[insurances.CSCKX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view style="margin-top: 0rpx; margin-bottom: 20rpx; height: 2rpx; border-top: 1px dashed #dadada; width: 100%">
+	    </view>
+		<view class="littleTitle">商业附加险种</view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">车身划痕损失险</view>
+	    	<view class="toggleCol" id="CSHHX_MP" bindtap="mpChange">
+		        <view class="MP {{ insurances.CSHHX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="CSHHX" bindchange="bindPickerChange" value="{{insurances.CSHHX.index}}" range="{{insurances.CSHHX.list}}">
+			    <view class="picker">
+			    	{{insurances.CSHHX.list[insurances.CSHHX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+		<view class="threeColumnItem">
+	    	<view class="labelCol">玻璃破损险</view>
+	    	<view class="toggleCol">
+	        </view>
+	        <view class="inputCol">
+	          <picker id="BLX" bindchange="bindPickerChange" value="{{insurances.BLX.index}}" range="{{insurances.BLX.list}}">
+			    <view class="picker">
+			    	{{insurances.BLX.list[insurances.BLX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">车辆自燃损失险</view>
+	    	<view class="toggleCol"  id="CLZRX_MP" bindtap="mpChange">
+		        <view class="MP {{ insurances.CLZRX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="CLZRX" bindchange="bindPickerChange" value="{{insurances.CLZRX.index}}" range="{{insurances.CLZRX.list}}">
+			    <view class="picker">
+			    	{{insurances.CLZRX.list[insurances.CLZRX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">发动机涉水损失险</view>
+	    	<view class="toggleCol" id="SSX_MP" bindtap="mpChange">
+		        <view class="MP {{ insurances.SSX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="SSX" bindchange="bindPickerChange" value="{{insurances.SSX.index}}" range="{{insurances.SSX.list}}">
+			    <view class="picker">
+			    	{{insurances.SSX.list[insurances.SSX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">指定专修厂险</view>
+	    	<view class="toggleCol">
+	    	</view>
+	        <view class="inputCol">
+	          <picker id="ZXCX" bindchange="bindPickerChange" value="{{insurances.ZXCX.index}}" range="{{insurances.ZXCX.list}}">
+			    <view class="picker">
+			    	{{insurances.ZXCX.list[insurances.ZXCX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">机动车损失保险无法找到第三方特约险</view>
+	    	<view class="toggleCol">
+	    	</view>
+	        <view class="inputCol">
+	          <picker id="SFTYX" bindchange="bindPickerChange" value="{{insurances.SFTYX.index}}" range="{{insurances.SFTYX.list}}">
+			    <view class="picker">
+			    	{{insurances.SFTYX.list[insurances.SFTYX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	    <view class="threeColumnItem">
+	    	<view class="labelCol">精神损害抚慰金责任险</view>
+	    	<view class="toggleCol" id="JSSHX_MP" bindtap="mpChange">
+		        <view class="MP {{ insurances.JSSHX_MP.isIns ? 'unSelect' : ''}}">不计免赔</view>
+	        </view>
+	        <view class="inputCol">
+	          <picker id="JSSHX" bindchange="bindPickerChange" value="{{insurances.JSSHX.index}}" range="{{insurances.JSSHX.list}}">
+			    <view class="picker">
+			    	{{insurances.JSSHX.list[insurances.JSSHX.index]}}
+			    </view>
+			  </picker>
+	        </view>
+	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
+	    </view>
+	</view>
+	<view class="wrapper">
+		<view class="wrapperTitle">
+			<image class="kind-list-img" src="../../images/ic_subtitle_qiang.png"></image>
+	        <view class="kind-list-text">交强险</view>
+		</view>
+		<view class="item itemNoBorder">
+	      <view class="col_hd">起保日期</view>
+	      <view class="col_bd">
+	        <picker mode="date" value="{{startDate}}" bindchange="bindStartDateChange">
+			    <view class="picker">
+			      {{startDate}}
+			    </view>
+			</picker>
+	      </view>
+	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
+	    </view>
+	    <view class="item itemNoBorder">
+	      <view class="col_hd">交强险(代缴车船税)</view>
+	      <view class="col_bd">
+			<picker id="JSSHX" bindchange="bindPickerChange" value="{{jqxIndex}}" range="{{jqxList}}">
+			    <view class="picker">
+			    	{{jqxList[jqxIndex]}}
+			    </view>
+			  </picker>
+	      </view>
+	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
+	    </view>
+	</view>
+
+	<view class="wrapper">
+		<view class="kind-list">
+	        <view class="kind-list-item">
+	          <view id="ren" class="kind-list-item-hd {{isRenOpening ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+	            <image class="kind-list-img" src="../../images/ic_subtitle_ren.png"></image>
+	            <view class="kind-list-text">投保人信息</view>
+	            <view class="toggle_icon" style="display: flex;">
+	            	<view hidden="{{isRenOpening}}" style="padding-right: 20rpx;">展开</view>
+	            	<view hidden="{{!isRenOpening}}" style="padding-right: 20rpx;">收起</view>
+	            	<view class="navigator-arrow down {{isRenOpening ? 'up' : ''}}"></view>
+	            </view>
+	          </view>
+	          <view class="kind-list-item-bd {{isRenOpening ? 'kind-list-item-bd-show' : ''}}">
+	            <view class="navigator-box {{isRenOpening ? 'navigator-box-show' : ''}}">
+	                <view class="item">
+				      <view class="col_hd">名称</view>
+				      <lable class="lbNormal active" style="display: inline-block;">个人</lable>
+			          <lable class="lbNormal" style="display: inline-block;">企业</lable>
+				      <view class="col_bd">
+				        <input type="text" placeholder="请输入投保人名称"/>
+				      </view>
+				    </view>
+				    <view class="item">
+				      <view class="col_hd">手机号</view>
+				      <view class="col_bd">
+				        <input type="number" maxlength="11" placeholder="请输入手机号"/>
+				      </view>
+				    </view>
+				    <view class="item">
+				      <view class="col_hd">证件号码</view>
+				      <view class="col_bd">
+				        <input type="text" maxlength="50" placeholder="请输入身份证号"/>
+				      </view>
+				    </view>
+				    <view class="item">
+				      <view class="col_hd">电子邮箱</view>
+				      <view class="col_bd">
+				        <input type="text" maxlength="50" placeholder="请输入身份证号"/>
+				      </view>
+				    </view>
+	            </view>
+	          </view>
+	        </view>
+	    </view>
+	</view>
+
+	<view class="wrapper">
+		<view class="kind-list">
+	        <view class="kind-list-item">
+	          <view id="bei" class="kind-list-item-hd {{isBeiOpening ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+	            <image class="kind-list-img" src="../../images/ic_subtitle_bei.png"></image>
+	            <view class="kind-list-text">被保险人信息</view>
+	            <view class="toggle_icon" style="display: flex;">
+	            	<view hidden="{{isBeiOpening}}" style="padding-right: 20rpx;">展开</view>
+	            	<view hidden="{{!isBeiOpening}}" style="padding-right: 20rpx;">收起</view>
+	            	<view class="navigator-arrow down {{isBeiOpening ? 'up' : ''}}"></view>
+	            </view>
+	          </view>
+	          <view class="kind-list-item-bd {{isBeiOpening ? 'kind-list-item-bd-show' : ''}}">
+	            <view class="navigator-box {{isBeiOpening ? 'navigator-box-show' : ''}}">
+	                <view class="item">
+				      <view class="col_hd">名称</view>
+				      <lable class="lbNormal active" style="display: inline-block;">个人</lable>
+			          <lable class="lbNormal" style="display: inline-block;">企业</lable>
+				      <view class="col_bd">
+				        <input type="text" placeholder="请输入被保险人名称"/>
+				      </view>
+				    </view>
+				    <view class="item">
+				      <view class="col_hd">手机号</view>
+				      <view class="col_bd">
+				        <input type="number" maxlength="11" placeholder="请输入手机号"/>
+				      </view>
+				    </view>
+				    <view class="item">
+				      <view class="col_hd">证件号码</view>
+				      <view class="col_bd">
+				        <input type="text" maxlength="50" placeholder="请输入身份证号"/>
+				      </view>
+				    </view>
+				    <view class="item">
+				      <view class="col_hd">电子邮箱</view>
+				      <view class="col_bd">
+				        <input type="text" maxlength="50" placeholder="请输入身份证号"/>
+				      </view>
+				    </view>
+	            </view>
+	          </view>
+	        </view>
+	    </view>
+	</view>
+
+	<view style="width:100%;padding: 20px 0">
+	    <button bindtap="" class="btn">确定</button>
+	</view>
+
+</view>

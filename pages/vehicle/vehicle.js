@@ -1,4 +1,5 @@
 const util = require('../../utils/util');
+var app = getApp();
 Page({
     data: {
         index: 0,
@@ -47,16 +48,84 @@ Page({
                 code: "190",
                 desc: "其他营业车辆"
             }],
-        leaseStartTime: util.formatTime2(new Date())
+        form: {
+            vin: '',
+            engine: '',
+            leaseStartTime: util.formatTime2(new Date()),
+            brandName: '',
+            carKindCode: '02',
+            modelCode: '',
+            carUsedType: '211'
+        }
+    },
+    onLoad: function(options) {
+        this.WxValidate = app.WxValidate({
+              vin: {
+                  required: true
+              },
+              engine: {
+                  required: true
+              },
+              brandName: {
+                  required: true
+              },
+              modelCode: {
+                  required: true
+              }
+          }, {
+            vin: {
+              required: app.config.MSGINFO.VIN
+            },
+            engine: {
+              required: app.config.MSGINFO.ENGINE
+            },
+            brandName: {
+              required: app.config.MSGINFO.BRANDNAME
+            },
+            modelCode: {
+              required: app.config.MSGINFO.MODELCODE
+            }
+          });
+    },
+    toggle: function(e) {
+        let val = e.currentTarget.id;
+        this.setData({
+            'form.carKindCode': val
+        });
     },
     bindLeaseStartTime: function(e) {
         this.setData({
-            leaseStartTime: e.detail.value
+            'form.leaseStartTime': e.detail.value
         });
     },
     bindPickerChange: function(e) {
         this.setData({
-            index: e.detail.value
+            index: e.detail.value,
+            'form.carUsedType': this.data.useArray[e.detail.value].code
         });
+    },
+    apply: function(e) {
+        let _this = this;
+        const params = e.detail.value;
+        if (!_this.WxValidate.checkForm(e)) {
+            const error = _this.WxValidate.errorList[0];
+            wx.showToast({
+              title: `${error.msg}`,
+              icon: 'success',
+              duration: 2000
+            });
+            return false;
+        }
+        app.globalData.quoteRequest.Vin = params.vin;
+        app.globalData.quoteRequest.Engine = params.engine;
+        app.globalData.quoteRequest.BrandName = params.brandName;
+        app.globalData.quoteRequest.EnrollDate = params.leaseStartTime;
+        app.globalData.quoteRequest.ModelCode = params.modelCode;
+        app.globalData.quoteRequest.CarUsedType = this.data.form.carUsedType;
+        app.globalData.quoteRequest.CarKindCode = this.data.form.carKindCode;
+
+        wx.navigateTo({
+          url: '../scheme/scheme'
+        })
     }
 });

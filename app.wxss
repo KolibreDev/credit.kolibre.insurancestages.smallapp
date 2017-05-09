@@ -1,4 +1,7 @@
 /**app.wxss**/
+form {
+  width: 100%;
+}
 .container {
   height: 100%;
   display: flex;
@@ -32,26 +35,49 @@ view {
   right: 10rpx;
 }
 
+.navigator-arrow.down:after {
+  transform: matrix(0.71, 0.71, 0.71, -0.71, 0, 0);
+}
+.navigator-arrow.down.up:after {
+  transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0);
+}
+
 .wrapper {
   background-color: #ffffff;
   margin-top: 10px;
   width: 100%;
   padding: 0 20px;
 }
-
+.wrapper .wrapperTitle {
+  font-size:18px;
+  color:#333;
+  display: flex;
+  padding: 40rpx 0 30rpx 0;
+  justify-content: center;
+  border-bottom:1px dashed #dadada;
+  align-items: center;
+}
+.wrapperTitle image {
+  width:48rpx;
+  height:48rpx;
+  padding-right: 30rpx;
+}
 .item {
   display: flex;
   border-bottom: 1px solid #dadada;
-  font-size: 16px;
+  font-size: 15px;
   color: #333333;
   align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
 }
+.item.itemNoBorder {
+  border-bottom: 0;
+  color: #646464;
+}
 .wrapper .item:last-child {
   border-bottom: none;
 }
-
 .col_hd {
   height: 54px;
   line-height: 54px;
@@ -59,20 +85,26 @@ view {
   width: auto;
   padding-left: 5px;
 }
-
 .col_bd {
   width: 100%;
   padding-right: 5px;
   text-align: right;
 }
-
-.col_bd input, picker {
-  
-  font-size: 16px;
-  color: #333333;
+.col_bd input,  picker {
   text-align: right;
+  width: 100%;
+  height: 100%;
 }
-
+picker {
+  min-height: 54px;
+}
+.col_bd picker {
+  line-height: 54px;
+}
+.picker {
+  height: 100%;
+  min-height: 54px;
+}
 .lbNormal {
   border: 1px solid #646464;
   border-radius: 56px;
@@ -112,7 +144,7 @@ view {
   text-align: center;
   font-size: 24rpx;
   display: inline-block;
-  border-right: 1px dashed #ffffff;
+  border-right: 1px dashed rgba(255, 255, 255, 0.38);
 }
 .icon {
   width: 100rpx;
@@ -132,7 +164,7 @@ view {
 }
 image {
   width: 80rpx;
-  border-radius: 100%;
+  /*border-radius: 100%;*/
 }
 .rightHeader {
   font-size: 14px;
@@ -142,7 +174,7 @@ image {
   overflow: hidden;
 }
 .userInfo {
-  font-size:16px;
+  font-size:15px;
   color:#646464;
   margin-top: 40rpx;
   text-align: left;
@@ -157,8 +189,6 @@ image {
   height: 48rpx;
   padding-right: 30rpx;
 }
-
-
 .navigator-box {
   opacity: 0;
   position: relative;
@@ -195,6 +225,9 @@ image {
 .navigator-text {
   flex: 1;
 }
+.kind-list {
+  background: #f4f4f4;
+}
 .kind-list-item {
   margin: 20rpx 0;
   background-color: #FFFFFF;
@@ -206,20 +239,25 @@ image {
 }
 .kind-list-text{
   flex: 1;
+  font-size:18px;
+  color:#333;
 }
 .kind-list-img {
-  width: 60rpx;
-  height: 60rpx;
+  width: 48rpx;
+  height: 48rpx;
 }
 .kind-list-item-hd {
-  padding: 30rpx;
+  padding: 40rpx 0;
   display: flex;
   align-items: center;
 
   transition: opacity .3s;
 }
+.kind-list-item-hd image {
+  padding-right: 20rpx;
+}
 .kind-list-item-hd-show {
-  opacity: .2;
+  /*opacity: .2;*/
 }
 .kind-list-item-bd {
   height: 0;
@@ -227,4 +265,78 @@ image {
 }
 .kind-list-item-bd-show {
   height: auto;
+}
+.toggle_icon {
+  font-size: 16px;
+  color:#fba024;
+}
+.toggle_icon .navigator-arrow:after{
+  border-color: #fba024;
+}
+.kind-list-item-value {
+  display:flex;
+  align-items:center;
+  font-size:16px;
+  color:#646464;
+  margin-bottom: 30rpx;
+}
+.kind-list-item-value.total-item {
+  font-size:18px;
+  color:#333;
+  padding: 30rpx 0 10rpx 0;
+  border-top: 1px dashed #dadada;
+}
+.kind-list-item-name {
+  flex: 1;
+}
+.littleTitle {
+  font-size:15px;
+  color:#333;
+  margin: 40rpx 0 30rpx;
+  position: relative;
+  padding-left: 30rpx;
+}
+.littleTitle::before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: #fba024;
+  left: 0;
+  top: 12rpx;
+  z-index: 100;
+}
+.threeColumnItem {
+  justify-content: space-around;
+  display:flex;
+  font-size:15px;
+  color:#646464;
+  align-items:flex-start;
+  min-height:54px;
+}
+.labelCol{
+  width: 50%; word-break:break-all;
+  padding-right: 20rpx;
+}
+.toggleCol {
+  width: 20%;
+  font-size:10px;
+  color:#ffffff;
+  min-height: 54px;
+}
+.inputCol {
+  width: 30%;
+}
+.MP {
+  width:51px;height:19px;line-height: 19px; text-align: center; background:#fba024;border:1px solid #fba024;border-radius:56px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.MP.unSelect {
+  border:1px solid #ccc;
+  color:#6e6e6e;
+  background: #fff;
 }

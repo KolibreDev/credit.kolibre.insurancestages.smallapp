@@ -1,34 +1,65 @@
 <view style="height:30px"></view>
-<swiper>
-  <block wx:for="{{imgUrls}}">
+  <swiper bindchange="swpierChange">
     <swiper-item>
-      <view class="wrapper">
+      <view class="wrapperS">
         <view>
-          <image mode="widthFix" src="{{item}}" style="width:100%"></image>
+          <image mode="widthFix" src="../../images/ic_scheme1.png" style="width:100%"></image>
         </view>
-        <view class="item">
+        <view class="itemS">
           <span>交强险</span>投保
         </view>
-        <view class="item">
+        <view class="itemS">
           <span>商业险</span>投保
         </view>
-        <view class="item">
+        <view class="itemS">
           <span>车损险</span>
           <view class="tip">不计免赔</view>
         </view>
-        <view class="item">
+        <view class="itemS">
           <label>三者险</label>50万
           <view class="tip">不计免赔</view>
         </view>
-        <view class="item">
+        <view class="itemS">
           <label>司机险</label>1万
           <view class="tip">不计免赔</view>
         </view>
-        <view class="item">
+        <view class="itemS">
           <label>乘客险</label>1万
           <view class="tip">不计免赔</view>
         </view>
-        <view class="item">
+        <view style="bottom:20px;position:absolute;left:40px;right:40px;text-align:center">
+          <button style="border:1px solid #fba024;border-radius:100px;width:118px;height:33px;line-height: 33px;font-size:14px;color:#fba024;background-color: white">修改此方案</button>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="wrapperS">
+        <view>
+          <image mode="widthFix" src="../../images/ic_scheme2.png" style="width:100%"></image>
+        </view>
+        <view class="itemS">
+          <span>交强险</span>投保
+        </view>
+        <view class="itemS">
+          <span>商业险</span>投保
+        </view>
+        <view class="itemS">
+          <span>车损险</span>
+          <view class="tip">不计免赔</view>
+        </view>
+        <view class="itemS">
+          <label>三者险</label>100万
+          <view class="tip">不计免赔</view>
+        </view>
+        <view class="itemS">
+          <label>司机险</label>2万
+          <view class="tip">不计免赔</view>
+        </view>
+        <view class="itemS">
+          <label>乘客险</label>2万
+          <view class="tip">不计免赔</view>
+        </view>
+        <view class="itemS">
           <label>盗抢险</label>
           <view class="tip">不计免赔</view>
         </view>
@@ -37,17 +68,16 @@
         </view>
       </view>
     </swiper-item>
-  </block>
 </swiper>
 <view style="margin-top:20px;text-align:center">
-  <view style="width: 12px; height: 12px;border-radius:100%;display:inline-block;border: 2px solid transparent;">
-    <view style="background:#d7dbe1;width:6px;height:6px;border-radius:100%; margin-top: 1px;margin-left: 1px;"></view>
+  <view class="swiperDot {{currentIndex == 0 ? 'swiperActive' : ''}}">
+    <view></view>
   </view>
-  <view style="width: 12px; height: 12px;border-radius:100%;display:inline-block;border: 2px solid #ffa665;margin-left:4px">
-    <view style="background:#ffa665;width:6px;height:6px;border-radius:100%; margin-top: 1px;margin-left: 1px;"></view>
+  <view class="swiperDot {{currentIndex == 1 ? 'swiperActive' : ''}}" style="margin-left: 4px;">
+    <view></view>
   </view>
 </view>
-<view style="margin-top:20px;text-align:center">
-  <button style="border:1px solid #fba024;border-radius:100px;width:118px;height:33px;line-height: 33px;font-size:14px;color:#fba024;background-color: white">修改此方案</button>
+<view style="margin-top:20px;text-align:center" >
+  <button bindtap="apply" style="width: calc(100% - 80px); margin-left: 40px;" class="btn">确定</button>
 </view>
 <view style="height:10px"></view>

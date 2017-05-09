@@ -8,7 +8,7 @@ swiper-item {
   width: 100%;
   display: block;
 }
-.wrapper {
+.wrapperS {
   margin-right: 40px;
   margin-left: 40px;
   height: 440px;
@@ -16,7 +16,7 @@ swiper-item {
   box-shadow: 0 8px 19px 0 rgba(104, 76, 36, 0.15);
   border-radius: 10px;
 }
-.wrapper .item {
+.wrapperS .itemS {
   margin-top: 20px;
   padding: 0 20px;
   font-size: 16px;
@@ -31,7 +31,6 @@ label {
   color: #666666;
   float: left;
 }
-
 .tip {
   background: rgba(255, 140, 20, 0.10);
   border: 1px solid #fba024;
@@ -44,15 +43,24 @@ label {
   font-size: 10px;
   color: #fba024
 }
-
 .wx-swiper-dot::before{
   font-size: 100rpx;
   color: #a10;
   margin-top: 20px;
 }
-
-
 .wx-swiper-dot-active::before{
   font-size: 100rpx;
   color: #fff;
+}
+.swiperDot {
+  width: 12px; height: 12px;border-radius:100%;display:inline-block;border: 2px solid transparent
+} 
+.swiperDot view {
+  background:#d7dbe1;width:6px;height:6px;border-radius:100%; margin-top: 1px;margin-left: 1px;
+}
+.swiperDot.swiperActive {
+  border: 2px solid #ffa665;
+}
+.swiperDot.swiperActive view {
+  background: #ffa665;
 }

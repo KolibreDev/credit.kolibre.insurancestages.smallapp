@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/orderInfo/orderInfo",
     "pages/index/index",
     "pages/scheme/scheme",
     "pages/vehicle/vehicle",
+    "pages/modification/modification",
+    "pages/orderInfo/orderInfo",
     "pages/offerPriceBasic/offerPriceBasic"
   ],
   "window":{
