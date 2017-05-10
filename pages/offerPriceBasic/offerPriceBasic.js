@@ -1,5 +1,4 @@
 const util = require('../../utils/util');
-var feedbackApi = require('../../utils/showToast');
 var app = getApp();
 Page({
   data: {
@@ -114,7 +113,7 @@ Page({
         const error = _this.WxValidate.errorList[0];
         wx.showToast({
           title: `${error.msg}`,
-          icon: 'success',
+          image: '../../images/err.png',
           duration: 2000
         });
         return false;
@@ -123,7 +122,7 @@ Page({
       if (!app.config.REGEX.CREDENTIALNO.test(params.identifyNumber)) {
         wx.showToast({
           title: app.config.MSGINFO.IDENTIFYNUMBERERR,
-          icon: 'success',
+          image: '../../images/err.png',
           duration: 2000
         })
         return false;
@@ -141,7 +140,7 @@ Page({
     app.globalData.quoteRequest.LicenseNo = params.licenseNo;
     var relationUser = {
         identifyNumber: params.identifyNumber,
-        identifyType: "1",
+        identifyType: this.data.form.insuredType,
         insuredAddress: "上海市",
         insuredName: params.insuredName,
         insuredType: this.data.form.insuredType,
@@ -152,7 +151,7 @@ Page({
     app.globalData.quoteRequest.RelationUser.push(relationUser);
    var relationUser1 = {
         identifyNumber: params.identifyNumber,
-        identifyType: "1",
+        identifyType: this.data.form.insuredType,
         insuredAddress: "上海市",
         insuredName: params.insuredName,
         insuredType: this.data.form.insuredType,
@@ -162,7 +161,7 @@ Page({
     app.globalData.quoteRequest.RelationUser.push(relationUser1);
     var relationUser2 = {
         identifyNumber: params.identifyNumber,
-        identifyType: "1",
+        identifyType: this.data.form.insuredType,
         insuredAddress: "上海市",
         insuredName: params.insuredName,
         insuredType: this.data.form.insuredType,

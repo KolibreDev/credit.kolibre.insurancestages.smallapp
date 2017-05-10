@@ -111,7 +111,7 @@ Page({
             const error = _this.WxValidate.errorList[0];
             wx.showToast({
               title: `${error.msg}`,
-              icon: 'success',
+              image: '../../images/err.png',
               duration: 2000
             });
             return false;

@@ -135,9 +135,40 @@ picker {
 .normalHeader {
   background-image:linear-gradient(0deg, #ff7729 0%, #ff973a 100%);
   width:100%;
-  height: 240rpx;
-  padding: 36rpx 0;
-  color:#ffffff;
+  /*height: 240rpx;
+  padding: 36rpx 0;*/
+  padding: 4rpx 20rpx 20rpx;
+  color:#646464;
+}
+.topHeader {
+  width: 164rpx;
+  height: 164rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border: 10rpx solid #ffbf88;
+  border-radius: 100%;
+  background:#fff4eb;
+  text-align: center;
+}
+.topHeader image {
+  width: 120rpx;
+  margin-top: 10rpx;
+}
+.bottomHeader {
+  background:#fff4eb;
+  border-radius:6px 6px 0 0;
+  width:100%;
+  height:auto;
+  margin-top: -82rpx;
+  z-index: 10;
+  text-align: center;
+  overflow: hidden;
+}
+.insText {
+  font-size:12px;
+  color:#646464;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
 }
 .leftHeader {
   width: 220rpx;
@@ -145,6 +176,7 @@ picker {
   font-size: 24rpx;
   display: inline-block;
   border-right: 1px dashed rgba(255, 255, 255, 0.38);
+  height: 168rpx;
 }
 .icon {
   width: 100rpx;
@@ -153,7 +185,7 @@ picker {
   border-radius: 100%;
   margin: 0 auto;
   padding-top: 8rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 36rpx;
 }
 .iconBackground {
   background:rgba(255,255,255,0.80);
@@ -176,7 +208,7 @@ image {
 .userInfo {
   font-size:15px;
   color:#646464;
-  margin-top: 40rpx;
+  margin-top: 30rpx;
   text-align: left;
 }
 .halfTextArray {
@@ -330,13 +362,16 @@ image {
   width: 30%;
 }
 .MP {
-  width:51px;height:19px;line-height: 19px; text-align: center; background:#fba024;border:1px solid #fba024;border-radius:56px;
+  width:51px;height:19px;line-height: 19px; text-align: center; 
   margin-left: auto;
   margin-right: auto;
-
-}
-.MP.unSelect {
   border:1px solid #ccc;
   color:#6e6e6e;
   background: #fff;
+  border-radius:56px;
+
+}
+.MP.select {
+  color: #fff;
+  background:#fba024;border:1px solid #fba024;
 }

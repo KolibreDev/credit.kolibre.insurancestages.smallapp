@@ -12,47 +12,62 @@ Page({
     	if (this.data.currentIndex == 0) {
     		app.globalData.quoteRequest.Type = app.globalData.selling.type;
     		app.globalData.quoteRequest.Insurances = app.globalData.selling.insurances;
+    		app.globalData.modifyingType = 'selling';
     	} 
     	else {
     		app.globalData.quoteRequest.Type = app.globalData.upmarket.type;
     		app.globalData.quoteRequest.Insurances = app.globalData.upmarket.insurances;
+    		app.globalData.modifyingType = 'upmarket';
     	}
     	app.postRequest(app.config.URLS.QUOTE, app.globalData.quoteRequest,
             function(res) {
             	var resTest = res;
-                // if (res.succeeded) {
-                //     feedbackApi.showToast({
-                //         title: '认证成功',
-                //         icon: '/images/success.png',
-                //         mask: false,
-                //         duration: 1000,
-                //         cb: function() {
-                //             wx.redirectTo({ url: 'apply2' });
-                //         }
-                //     });
-
-                // } else {
-                //     waitCount = waitCount + 1;
-                //     feedbackApi.showToast({
-                //         title: waitCount < 2 ? "认证失败\n请重新认证" : "申请月付失败\n请联系客服",
-                //         icon: '/images/fail.png',
-                //         mask: false,
-                //         duration: 2000,
-                //         cb: function() {
-                //             if (waitCount >= 2) {
-                //                 wx.redirectTo({ url: 'bill' });
-                //             }
-                //         }
-                //     });
-                // }
+	        	if (res.succeeded ) {
+	        		app.globalData.quoteReponse = res;
+                    wx.redirectTo({ url: '../insResult/insResult' });
+	        	}
+	        	else {
+	        		wx.showToast({
+			          title: res.message,
+			          image: '../../images/err.png',
+			          duration: 2000
+			        });
+	        	}
             }, function(err) {
-            	var errTest = res;
-                // feedbackApi.showToast({
-                //     title: err.message,
-                //     icon: '/images/fail.png',
-                //     mask: false,
-                //     duration: 2000
-                // });
+            	var errTest = err;
+                wx.showToast({
+                  title: '内部错误，请稍后再试',
+                  image: '../../images/err.png',
+                  duration: 2000
+                });
             });
+    },
+    toggleSwpier(e) {
+    	var id = e.currentTarget.id;
+    	if (id == 'first') {
+    		this.setData({
+	            currentIndex: 0
+	        });
+    	}
+    	else {
+    		this.setData({
+	            currentIndex: 1
+	        });
+    	}
+
+    	
+    },
+    modifyType: function() {
+    	if (this.data.currentIndex == 0) {
+    		app.globalData.quoteRequest.Type = app.globalData.selling.type;
+    		app.globalData.quoteRequest.Insurances = app.globalData.selling.insurances;
+    		app.globalData.modifyingType = 'selling';
+    	} 
+    	else {
+    		app.globalData.quoteRequest.Type = app.globalData.upmarket.type;
+    		app.globalData.quoteRequest.Insurances = app.globalData.upmarket.insurances;
+    		app.globalData.modifyingType = 'upmarket';
+    	}
+    	wx.redirectTo({ url: '../modification/modification' });
     }
 });
