@@ -161,7 +161,7 @@ Page({
 	       }
 		},
 		form: {
-			placeholder1: '请输入身份证号码', // '请输入公司代码'
+			placeholder1: '请输入身份证号码',
 			insuredName1: null,
 			identifyNumber1: null,
 			phone1: null,
@@ -185,16 +185,20 @@ Page({
 			insuredName: app.globalData.quoteRequest.RelationUser[0].insuredName,
 			identifyNumber: app.globalData.quoteRequest.RelationUser[0].identifyNumber,
 			phone: app.globalData.quoteRequest.RelationUser[0].phone,
-			biStartTime: util.formatTime2(new Date(app.globalData.quoteRequest.BiStartTime)),
-			biEndTime: util.formatTime2(new Date(app.globalData.quoteRequest.BiEndTime)),
-			ciStartTime: util.formatTime2(new Date(app.globalData.quoteRequest.CiStartTime)),
+			biStartTime: app.globalData.quoteRequest.BiStartTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
+			biEndTime: app.globalData.quoteRequest.BiEndTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
+			ciStartTime: app.globalData.quoteRequest.CiStartTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
 			'form.insuredName1': app.globalData.quoteRequest.RelationUser[1].insuredName,
 			'form.identifyNumber1': app.globalData.quoteRequest.RelationUser[1].identifyNumber,
 			'form.phone1': app.globalData.quoteRequest.RelationUser[1].phone,
 			'form.insuredName2': app.globalData.quoteRequest.RelationUser[2].insuredName,
 			'form.identifyNumber2': app.globalData.quoteRequest.RelationUser[2].identifyNumber,
 			'form.phone2': app.globalData.quoteRequest.RelationUser[2].phone,
+			'form.insuredType1': app.globalData.quoteRequest.RelationUser[1].identifyType,
+			'form.insuredType2': app.globalData.quoteRequest.RelationUser[2].identifyType
 		});
+		console.log(app.globalData.quoteRequest.CiStartTime);
+		console.log(this.data.ciStartTime);
 		if (app.globalData.quoteRequest.Company == 'PICC') {
 			this.setData({
 				companyText: '中国人民保险',
@@ -305,7 +309,6 @@ Page({
 	},
 	toggle: function(e) {
 	    let val = e.currentTarget.id;
-	    // '请输入身份证号码', // '请输入公司代码'
 	    if (val == '11') {
 	    	this.setData({
 		      'form.placeholder1': '请输入身份证号码',
@@ -314,7 +317,7 @@ Page({
 	    }
 	    else if (val == '12') {
 	    	this.setData({
-		      'form.placeholder1': '请输入公司代码',
+		      'form.placeholder1': '请输入组织机构代码',
 		      'form.insuredType1': 2
 		    })
 	    }
@@ -326,12 +329,12 @@ Page({
 	    }
 	    else {
 	    	this.setData({
-		      'form.placeholder2': '请输入公司代码',
+		      'form.placeholder2': '请输入组织机构代码',
 		      'form.insuredType2': 2
 		    })
 	    }
 	    var value = (val == 1) ? true : false;
-	    var placeholder = (val == 1) ? '请输入身份证号码' : '请输入公司代码';
+	    var placeholder = (val == 1) ? '请输入身份证号码' : '请输入组织机构代码';
 	    var insuredType = (val == 1) ? 1 : 2;
 	    this.setData({
 	      isPersonal: value,
@@ -610,6 +613,19 @@ Page({
 	        })
 	        return false;
 	    }
+
+	    var currentDate = new Date();
+	    var ciStartDateTest = new Date(this.data.ciStartTime);
+	    var biStartDateTest = new Date(this.data.biStartTime);
+	    if ((currentDate >= ciStartDateTest) || (currentDate >= biStartDateTest)) {
+	        wx.showToast({
+	          title: '投保起始日期应从明天开始',
+	          image: '../../images/err.png',
+	          duration: 2000
+	        })
+	        return false;
+	    }
+
 	    var insItem =  {
           insCode: null,
           code: "",
@@ -677,6 +693,7 @@ Page({
 	          image: '../../images/err.png',
 	          duration: 2000
 	        });
+	        return false;
         }
         if (this.data.jqxIndex > 0 && insurancesSelectedList.length > 0) {
         	 app.globalData.quoteRequest.Type = 3;
@@ -706,12 +723,24 @@ Page({
         app.globalData.quoteRequest.RelationUser[2].phone = params.phone2;
         app.globalData.quoteRequest.RelationUser[2].insuredName = params.insuredName2;
 
+        wx.showLoading({
+	      title: '数据提交中...'
+	    });
         app.postRequest(app.config.URLS.QUOTE, app.globalData.quoteRequest,
 	        function(res) {
-	        	var resTest = res;
 	        	if (res.succeeded ) {
-	        		app.globalData.quoteReponse = res;
-	        		wx.redirectTo({ url: '../insResult/insResult' });
+	        		if (res.data.hasData) {
+		        		wx.hideLoading();
+		        		app.globalData.quoteReponse = res;
+		        		wx.redirectTo({ url: '../insResult/insResult' });
+		        	}
+		        	else {
+		        		wx.showToast({
+				          title: res.data.desc,
+				          image: '../../images/err.png',
+				          duration: 2000
+				        });
+		        	}
 	        	}
 	        	else {
 	        		wx.showToast({
@@ -721,12 +750,13 @@ Page({
 			        });
 	        	}
 	        }, function(err) {
-	        	var errTest = err;
-	        	wx.showToast({
-                  title: '内部错误，请稍后再试',
-                  image: '../../images/err.png',
-                  duration: 2000
-                });
+	        	// wx.hideLoading();
+	        	// var errTest = err;
+	        	// wx.showToast({
+          //         title: '内部错误，请稍后再试',
+          //         image: '../../images/err.png',
+          //         duration: 2000
+          //       });
 	        });
 	}	
 })

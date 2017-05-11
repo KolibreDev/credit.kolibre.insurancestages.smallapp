@@ -52,7 +52,7 @@ view {
   font-size:18px;
   color:#333;
   display: flex;
-  padding: 40rpx 0 30rpx 0;
+  padding: 30rpx 0 30rpx 0;
   justify-content: center;
   border-bottom:1px dashed #dadada;
   align-items: center;
@@ -106,7 +106,7 @@ picker {
   min-height: 54px;
 }
 .lbNormal {
-  border: 1px solid #646464;
+  border: 1px solid #BFBFBF;
   border-radius: 56px;
   width: 80px;
   height: 24px;
@@ -131,6 +131,10 @@ picker {
   margin-right: 20px;
   font-size: 18px;
   color: #ffffff;
+}
+.btn:active{
+  background:#f96718;
+  box-shadow:0 2px 6px 0 rgba(251,147,41,0.70);
 }
 .normalHeader {
   background-image:linear-gradient(0deg, #ff7729 0%, #ff973a 100%);
@@ -165,10 +169,10 @@ picker {
   overflow: hidden;
 }
 .insText {
-  font-size:12px;
+  font-size:14px;
   color:#646464;
   margin-top: 30rpx;
-  margin-bottom: 50rpx;
+  margin-bottom: 40rpx;
 }
 .leftHeader {
   width: 220rpx;
@@ -240,7 +244,11 @@ image {
   position: relative;
   display: flex;
   align-items: center;
+  box-shadow:0 1px 4px 0 #e3c3b4;
 }
+.navigator-hover-sty {
+  box-shadow: 0 1px 10px 0 #e3c3b4 !important;
+} 
 .navigator:before {
   content: " ";
   position: absolute;
@@ -279,7 +287,7 @@ image {
   height: 48rpx;
 }
 .kind-list-item-hd {
-  padding: 40rpx 0;
+  padding: 30rpx 0 30rpx 0;
   display: flex;
   align-items: center;
 

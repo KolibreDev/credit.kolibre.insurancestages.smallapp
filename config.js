@@ -1,7 +1,8 @@
 
 var config = {
     URLS: {
-        QUOTE: 'https://creditkolibre-dev-carinsurance.chinacloudsites.cn/api/Shengda/Quote'
+        QUOTE: 'https://server-xiangfenqi.dev.kolibre.credit/api/Insurance/Quote',
+        RENEWAL: 'https://server-xiangfenqi.dev.kolibre.credit/api/Insurance/Renewal'
     },
     COOKIES: {
         AUTH: 'X-KC-SID'
@@ -15,7 +16,8 @@ var config = {
         BANKCARDNO: /^\d{15,19}$/,
         CHECKCODE: /^\d{6}$/,
         FLOOR: /^\d{1,5}$/,
-        AMOUNT: /^\d{1,7}(\.\d{1,2})?$/
+        AMOUNT: /^\d{1,7}(\.\d{1,2})?$/,
+        LICENSENO: /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/
     },
     MSGINFO: {
         LICENSENO: '车牌号不能为空',

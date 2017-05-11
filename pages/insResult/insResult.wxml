@@ -6,6 +6,21 @@
 		<view class="bottomHeader">
 			<view class="insText">{{companyText}}</view>
 			<view style="display: flex; margin-bottom: 30rpx; ">
+				<view style="padding: 0 0 0 40rpx;line-height: 0">
+					<image mode="widthFix" src="../../images/pinpai.png" style="width: 100rpx; "></image>
+				</view>
+				<view style="width: 100%; padding-left: 30rpx;">
+					<view  style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; height: 100%; text-align: left">
+						<view>
+							<text style="font-size:14px;color:#646464;">{{licenseNo}}</text>
+						</view>
+						<view>
+							<text style="font-size:14px;color:#646464;">{{brandName}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- <view style="display: flex; margin-bottom: 30rpx; ">
 				<view style="padding: 0 30rpx 0 40rpx;border-right:1px dashed #cccccc;line-height: 0">
 					<image mode="widthFix" src="../../images/pinpai.png" style="width: 100rpx; "></image>
 				</view>
@@ -21,7 +36,7 @@
 						</view>
 					</view>
 				</view>
-			</view>
+			</view> -->
 			<view hidden="{{isGetData}}" style="padding-left: 40rpx; padding-right: 40rpx; width: 100%;">
 				<view style="padding-top: 30rpx; width: 100%; border-top:1px dashed #cccccc; font-size: 24rpx; text-align: left">
 					<view style="margin-bottom: 30rpx">
@@ -43,7 +58,7 @@
 		</view>
 	</view>
 
-	<view class="wrapper" style="margin-top: 0; padding-bottom: 40rpx;">
+	<view class="wrapper" style="margin-top: 0; padding-bottom: 30rpx;">
 		<view class="userInfo">
 			<view class="halfTextArray">
 				<image src="../../images/ic_name_hl.png" style="vertical-align: middle;"></image>
@@ -64,13 +79,21 @@
 		<view class="wrapperTitle">
 			<image class="kind-list-img" src="../../images/ic_subtitle_shang.png"></image>
 	        <view class="kind-list-text">商业险</view>
-	        <view class="kind-list-text" style="text-align: right">¥ {{responseInfo.data.biPremium}}</view>
+	        <view class="kind-list-text" style="text-align: right; color:#fba024;">¥ {{responseInfo.data.biPremium}}</view>
 		</view>
 		<view style="height: 30rpx;">
 		</view>
+		<view class="kind-list-item-value">
+        	<view class="kind-list-item-name">起保日期</view>
+        	<view>{{biStartTime}}</view>
+        </view>
+        <view class="kind-list-item-value">
+        	<view class="kind-list-item-name">结束日期</view>
+        	<view>{{biEndTime}}</view>
+        </view>
 		<block wx:for="{{insurancesLists}}" wx:key="{{index}}">
 			<view hidden="{{item.isMP}}" class="kind-list-item-value" style="align-items: flex-start;">
-	        	<view style="padding-right: 10px;" class="kind-list-item-name">{{item.insName}}（{{item.amount}}）</view>
+	        	<view style="padding-right: 10px;" class="kind-list-item-name">{{item.insName}}{{item.amount}}</view>
 	        	<view>¥ {{item.premium}}</view>
 	        </view>
 	        <view hidden="{{!item.isMP}}" class="kind-list-item-value" style="align-items: flex-start;">
@@ -84,9 +107,9 @@
 
 	<view class="wrapper" hidden="{{type == 2}}">
 		<view class="wrapperTitle">
-			<image class="kind-list-img" src="../../images/ic_subtitle_shang.png"></image>
+			<image class="kind-list-img" src="../../images/ic_subtitle_qiang.png"></image>
 	        <view class="kind-list-text">交强险</view>
-	        <view class="kind-list-text" style="text-align: right">¥ {{responseInfo.data.ciPremium + responseInfo.data.tax}}</view>
+	        <view class="kind-list-text" style="text-align: right; color:#fba024;">¥ {{responseInfo.data.ciPremium + responseInfo.data.tax}}</view>
 		</view>
 		<view style="height: 30rpx;">
 		</view>

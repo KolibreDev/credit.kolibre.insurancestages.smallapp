@@ -7,10 +7,12 @@ Page({
   	isTransfered: false,
   	companyUrl: '',
     isPersonal: true,
-  	startDate: util.formatTime2(new Date()),
+  	startDate: util.getDateStr(1),
   	transferDate: util.formatTime2(new Date()),
+    citySelectIndex: 0,
+    cityList: [{desc: '上海', code: '310100'}, {desc: '南京', code: '320100'}, {desc: '苏州', code: '320500'}, {desc: '无锡', code: '320200'}],
     form: {
-      city: '上海',
+      cityCode: '310100',
       companyCode: '',
       licenseNo: '',
       insuredName: '',
@@ -39,7 +41,8 @@ Page({
     app.globalData.quoteRequest.Company = options.company;
     this.WxValidate = app.WxValidate({
           licenseNo: {
-              required: true
+              required: true,
+              licenseno: true
           },
           insuredName: {
               required: true
@@ -70,7 +73,7 @@ Page({
   toggle: function(e) {
     let val = e.currentTarget.id;
     var value = (val == 1) ? true : false;
-    var placeholder = (val == 1) ? '请输入身份证号码' : '请输入公司代码';
+    var placeholder = (val == 1) ? '请输入身份证号码' : '请输入组织机构代码';
     var insuredType = (val == 1) ? 1 : 2;
     this.setData({
       isPersonal: value,
@@ -97,14 +100,18 @@ Page({
   bindStartDateChange: function(e) {
 	  this.setData({
     	startDate:  e.detail.value
-    })
+    });
   },
   bindTransferDateChange: function(e) {
 	  this.setData({
     	transferDate:  e.detail.value
     })
   },
-  kindToggle: function (e) {
+  bindPickerChange: function(e) {
+      this.setData({
+          citySelectIndex: e.detail.value,
+          'form.cityCode': this.data.cityList[e.detail.value].code
+      });
   },
   saveInfosAndNext: function(e) {
     let _this = this;
@@ -128,11 +135,25 @@ Page({
         return false;
       }
     }
+    var currentDate = new Date();
+    var startDateTest = new Date(this.data.startDate);
+    if (currentDate >= startDateTest) {
+        wx.showToast({
+          title: '投保起始日期应从明天开始',
+          image: '../../images/err.png',
+          duration: 2000
+        })
+        return false;
+    }
+    wx.showLoading({
+      title: '数据提交中...'
+    });
     app.globalData.startTime = this.data.startDate;
     app.globalData.quoteRequest.TransferDate = null;
     if (this.data.isTransfered) {
       app.globalData.quoteRequest.TransferDate = this.data.transferDate;
     }
+    app.globalData.quoteRequest.CityCode = this.data.form.cityCode;
     app.globalData.quoteRequest.CiStartTime = this.data.startDate + ' 00:00:00';
     app.globalData.quoteRequest.CiEndTime = util.addOneYear(this.data.startDate) + ' 23:59:59';
     app.globalData.quoteRequest.BiStartTime = this.data.startDate + ' 00:00:00';
@@ -170,10 +191,42 @@ Page({
     };
     app.globalData.quoteRequest.RelationUser.push(relationUser2);
 
-
-  	wx.navigateTo({
-  	  url: '../vehicle/vehicle'
-  	})
+    app.postRequest(app.config.URLS.RENEWAL, {licenseNo:  app.globalData.quoteRequest.LicenseNo, cityCode: app.globalData.quoteRequest.CityCode },
+        function(res) {
+          
+          var resTest = res;
+          if (res.succeeded ) {
+            wx.hideLoading();
+            if (res.data.isGetData == 1) {
+              app.globalData.quoteRequest.IsGetData = 1;
+              app.globalData.quoteRequest.BrandName = res.data.brandName;
+              wx.navigateTo({
+                url: '../scheme/scheme'
+              });
+            }
+            else {
+              app.globalData.quoteRequest.IsGetData = 0;
+              wx.navigateTo({
+                url: '../vehicle/vehicle'
+              });
+            }
+          }
+          else {
+            wx.showToast({
+              title: res.message,
+              image: '../../images/err.png',
+              duration: 2000
+            });
+          }
+        }, function(err) {
+          // wx.hideLoading();
+          // var errTest = err;
+          // wx.showToast({
+          //       title: '内部错误，请稍后再试',
+          //       image: '../../images/err.png',
+          //       duration: 2000
+          //     });
+        });
   }
 })
 

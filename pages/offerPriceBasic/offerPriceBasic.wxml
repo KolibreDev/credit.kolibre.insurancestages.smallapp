@@ -8,9 +8,15 @@
 		      </view>
 		    </view>
 		    <view class="item">
-		      <view class="col_hd">投保城市<text style="font-size:12px;">（目前暂支持上海）</text>
+		      <view class="col_hd">投保城市</view>
+		      <view class="col_bd">
+		      	<picker bindchange="bindPickerChange" range="{{cityList}}" value="{{cityList[citySelectIndex].code}}"  range-key="desc">
+		            <view class="picker">
+		              {{cityList[citySelectIndex].desc}}
+		            </view>
+		        </picker>
 		      </view>
-		      <view class="col_bd">{{form.city}}</view>
+		      <view class="navigator-arrow"></view>
 		    </view>
 	    </view>
 	    <view class="wrapper">

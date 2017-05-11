@@ -2,24 +2,27 @@ page {
   background-color: #f4f4f4;
 }
 swiper {
-  height: 445px;
+  height: 880rpx;
 }
 swiper-item {
   width: 100%;
   display: block;
+  box-shadow: 0 8px 19px 0 rgba(104, 76, 36, 0.15);
+
 }
 .wrapperS {
-  margin-right: 40px;
-  margin-left: 40px;
-  height: 440px;
+  margin-right: 80rpx;
+  margin-left: 80rpx;
+  height: 880rpx;
   background-color: white;
-  box-shadow: 0 8px 19px 0 rgba(104, 76, 36, 0.15);
+  /*box-shadow: 0 8px 19px 0 rgba(104, 76, 36, 0.15);*/
   border-radius: 10px;
+  position: relative;
 }
 .wrapperS .itemS {
-  margin-top: 20px;
-  padding: 0 20px;
-  font-size: 16px;
+  margin-top: 40rpx;
+  padding: 0 40rpx;
+  font-size: 32rpx;
   text-align: right;
   color:#999999;
 }
@@ -35,18 +38,18 @@ label {
   background: rgba(255, 140, 20, 0.10);
   border: 1px solid #fba024;
   border-radius: 56px;
-  width: 50px;
-  height: 20px;
-  line-height: 20px;
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
   text-align: center;
   display: inline-block;
-  font-size: 10px;
+  font-size: 20rpx;
   color: #fba024
 }
 .wx-swiper-dot::before{
   font-size: 100rpx;
   color: #a10;
-  margin-top: 20px;
+  margin-top: 40rpx;
 }
 .wx-swiper-dot-active::before{
   font-size: 100rpx;

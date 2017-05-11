@@ -49,6 +49,7 @@ class WxValidate {
 				number: '请输入有效的数字。',
 				digits: '只能输入数字。',
 				idcard: '请输入18位的有效身份证。',
+				licenseno: '请输入正确的车牌号',
 				equalTo: this.formatTpl('输入值必须和 {0} 相同。'),
 				contains: this.formatTpl('输入值必须包含 {0}。'),
 				minlength: this.formatTpl('最少要输入 {0} 个字符。'),
@@ -134,6 +135,12 @@ class WxValidate {
 			 */
 			idcard(value) {
 				return that.optional(value) || /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(value)
+			},
+			/**
+			 * 验证车牌号
+			 */
+			licenseno(value) {
+				return that.optional(value) || /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(value)
 			},
 			/**
 			 * 验证两个输入框的内容是否相同

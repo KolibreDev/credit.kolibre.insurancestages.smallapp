@@ -16,6 +16,21 @@ function formatTime2(date) {
     var day = date.getDate();
     return [year, month, day].map(formatNumber).join('-');
 }
+// 获取与今天相差天数的日期
+function getDateStr(AddDayCount) {
+    var dd = new Date();
+    dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
+    var y = dd.getFullYear();
+    var m = dd.getMonth()+1;//获取当前月份的日期
+    if (m < 10) {
+        m = '0' + m;
+    }
+    var d = dd.getDate();
+     if (d < 10) {
+        m = '0' + m;
+    }
+    return y+"-"+m+"-"+d;
+}
 
 function addOneYear(val) {
     var gaga = new Date(val),
@@ -38,5 +53,6 @@ function formatNumber(n) {
 module.exports = {
     formatTime: formatTime,
     formatTime2: formatTime2,
-    addOneYear: addOneYear
+    addOneYear: addOneYear,
+    getDateStr: getDateStr
 };

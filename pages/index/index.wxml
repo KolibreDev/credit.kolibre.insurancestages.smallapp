@@ -6,7 +6,7 @@
 		<view class="subSloganText">车险分期  0手续费</view>
 	</view>
 	<view class="navigatorsList">
-		<navigator url="../offerPriceBasic/offerPriceBasic?company=PICC">
+		<navigator hover-class="navigator-hover-sty" url="../offerPriceBasic/offerPriceBasic?company=PICC">
 			<image mode="widthFix" src="../../images/ic_picc.png"></image>
 			<view class="insuranceFeatures">
 				<view>
@@ -19,7 +19,7 @@
 				</view>
 			</view>
 		</navigator>
-		<navigator url="../offerPriceBasic/offerPriceBasic?company=CPIC">
+		<navigator hover-class="navigator-hover-sty" url="../offerPriceBasic/offerPriceBasic?company=CPIC">
 			<image mode="widthFix" src="../../images/ic_pacific.png"></image>
 			<view class="insuranceFeatures">
 				<view>
@@ -32,7 +32,7 @@
 				</view>
 			</view>
 		</navigator>
-		<navigator url="../offerPriceBasic/offerPriceBasic?company=PAIC">
+		<navigator hover-class="navigator-hover-sty" url="../offerPriceBasic/offerPriceBasic?company=PAIC">
 			<image mode="widthFix" src="../../images/ic_pingan.png"></image>
 			<view class="insuranceFeatures">
 				<view>

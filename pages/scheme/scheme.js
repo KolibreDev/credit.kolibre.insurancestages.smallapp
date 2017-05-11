@@ -19,12 +19,25 @@ Page({
     		app.globalData.quoteRequest.Insurances = app.globalData.upmarket.insurances;
     		app.globalData.modifyingType = 'upmarket';
     	}
+        wx.showLoading({
+          title: '数据提交中...'
+        });
     	app.postRequest(app.config.URLS.QUOTE, app.globalData.quoteRequest,
             function(res) {
             	var resTest = res;
 	        	if (res.succeeded ) {
-	        		app.globalData.quoteReponse = res;
-                    wx.redirectTo({ url: '../insResult/insResult' });
+                    if (res.data.hasData) {
+                         wx.hideLoading();
+                        app.globalData.quoteReponse = res;
+                        wx.redirectTo({ url: '../insResult/insResult' });
+                    }
+                    else {
+                        wx.showToast({
+                          title: res.data.desc,
+                          image: '../../images/err.png',
+                          duration: 2000
+                        });
+                    }
 	        	}
 	        	else {
 	        		wx.showToast({
@@ -34,12 +47,13 @@ Page({
 			        });
 	        	}
             }, function(err) {
-            	var errTest = err;
-                wx.showToast({
-                  title: '内部错误，请稍后再试',
-                  image: '../../images/err.png',
-                  duration: 2000
-                });
+             //    wx.hideLoading();
+            	// var errTest = err;
+             //    wx.showToast({
+             //      title: '内部错误，请稍后再试',
+             //      image: '../../images/err.png',
+             //      duration: 2000
+             //    });
             });
     },
     toggleSwpier(e) {
@@ -68,6 +82,6 @@ Page({
     		app.globalData.quoteRequest.Insurances = app.globalData.upmarket.insurances;
     		app.globalData.modifyingType = 'upmarket';
     	}
-    	wx.redirectTo({ url: '../modification/modification' });
+    	wx.navigateTo({ url: '../modification/modification' });
     }
 });

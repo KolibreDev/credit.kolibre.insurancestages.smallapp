@@ -42,6 +42,7 @@ App({
                 }
                 else {
                     if (res.statusCode == 401) {
+                        wx.hideLoading();
                         wx.navigateTo({ url: 'login' });
                     } else if (res.statusCode == 400) {
                         wx.showToast({
@@ -68,6 +69,7 @@ App({
                 }
             },
             fail: function() {
+                // wx.hideLoading();
                 wx.showToast({
                     title: "网络链接异常,请稍后",
                     image: "/images/err.png",
@@ -266,7 +268,8 @@ App({
         BiEndTime: null,
         Token: null,
         Timestamp: null,
-        Sign: null
+        Sign: null,
+        CityCode: null
       },
 
       quoteReponse: null,

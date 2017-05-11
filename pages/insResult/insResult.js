@@ -39,9 +39,9 @@ Page({
 			insuredName: app.globalData.quoteRequest.RelationUser[0].insuredName,
 			identifyNumber: app.globalData.quoteRequest.RelationUser[0].identifyNumber,
 			phone: app.globalData.quoteRequest.RelationUser[0].phone,
-			biStartTime: util.formatTime2(new Date(app.globalData.quoteRequest.BiStartTime)),
-			biEndTime: util.formatTime2(new Date(app.globalData.quoteRequest.BiEndTime)),
-			ciStartTime: util.formatTime2(new Date(app.globalData.quoteRequest.CiStartTime)),
+			biStartTime: app.globalData.quoteRequest.BiStartTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
+			biEndTime: app.globalData.quoteRequest.BiEndTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
+			ciStartTime: app.globalData.quoteRequest.CiStartTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
 			responseInfo: app.globalData.quoteReponse,
 			type: app.globalData.quoteRequest.Type,
 			relationUser:  app.globalData.quoteRequest.RelationUser
@@ -71,11 +71,14 @@ Page({
 			if (insItem.insCode.indexOf('_MP') > 0) {
 				insItem.isMP = true;
 			}
+			if (parseInt(insItem.amount) == 0) {
+				insItem.amount = '';
+			}
 			if (parseInt(insItem.amount) > 0 && parseInt(insItem.amount) < 10000) {
-				insItem.amount = insItem.amount;
+				insItem.amount = '(' + insItem.amount + ')';
 			}
 			else {
-				insItem.amount = (insItem.amount / 10000).toFixed(0) + '万';
+				insItem.amount = '(' + (insItem.amount / 10000).toFixed(0) + '万' + ')';
 			}
 			insurancesList.push(insItem);
 		}
