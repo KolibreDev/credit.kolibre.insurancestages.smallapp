@@ -2,12 +2,11 @@
   "pages":[
     "pages/index/index",
     "pages/insResult/insResult",
-    "pages/offerPriceBasic/offerPriceBasic",
     "pages/modification/modification",
     "pages/scheme/scheme",
+    "pages/offerPriceBasic/offerPriceBasic",
     "pages/vehicle/vehicle",
     "pages/orderInfo/orderInfo"
-    
   ],
   "window":{
     "backgroundTextStyle":"light",

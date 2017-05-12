@@ -10,12 +10,12 @@
 			<image mode="widthFix" src="../../images/ic_picc.png"></image>
 			<view class="insuranceFeatures">
 				<view>
-					<view class="mark"></view>
-					<text>在线投保方便快捷</text>
+					<view class="mark" style="background: #F9573D"></view>
+					<text>爱车家人.保障升级</text>
 				</view>
 				<view>
-					<view class="mark"></view>
-					<text>在线投保方便快捷</text>
+					<view class="mark" style="background: #F9573D"></view>
+					<text>越优秀.越优惠</text>
 				</view>
 			</view>
 		</navigator>
@@ -24,11 +24,11 @@
 			<view class="insuranceFeatures">
 				<view>
 					<view class="mark blue"></view>
-					<text>在线投保方便快捷</text>
+					<text>专业.睿智.便捷</text>
 				</view>
 				<view>
 					<view class="mark blue"></view>
-					<text>在线投保方便快捷</text>
+					<text>保障全面.全车得益</text>
 				</view>
 			</view>
 		</navigator>
@@ -37,11 +37,11 @@
 			<view class="insuranceFeatures">
 				<view>
 					<view class="mark"></view>
-					<text>在线投保方便快捷</text>
+					<text>精准报价.快速投保</text>
 				</view>
 				<view>
 					<view class="mark"></view>
-					<text>在线投保方便快捷</text>
+					<text>理赔服务.全面升级</text>
 				</view>
 			</view>
 		</navigator>

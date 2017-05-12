@@ -11,12 +11,13 @@
 		      <view class="col_hd">投保城市</view>
 		      <view class="col_bd">
 		      	<picker bindchange="bindPickerChange" range="{{cityList}}" value="{{cityList[citySelectIndex].code}}"  range-key="desc">
-		            <view class="picker">
+		            <view class="picker pickerContent">
 		              {{cityList[citySelectIndex].desc}}
+		              <view class="navigator-arrow"></view>
 		            </view>
 		        </picker>
 		      </view>
-		      <view class="navigator-arrow"></view>
+		      
 		    </view>
 	    </view>
 	    <view class="wrapper">
@@ -52,12 +53,12 @@
 		      <view class="col_hd">起保日期</view>
 		      <view class="col_bd">
 		        <picker mode="date" value="{{startDate}}" bindchange="bindStartDateChange">
-				    <view class="picker">
+				    <view class="picker pickerContent">
 				      {{startDate}}
+				      <view class="navigator-arrow"></view>
 				    </view>
 				</picker>
 		      </view>
-		      <view class="navigator-arrow"></view>
 		    </view>
 		</view>
 		<view class="wrapper">
@@ -75,12 +76,12 @@
 		      <view class="col_hd">过户日期</view>
 		      <view class="col_bd">
 		        <picker mode="date" value="{{transferDate}}" bindchange="bindTransferDateChange">
-				    <view class="picker">
+				    <view class="picker pickerContent">
 				      {{transferDate}}
+				      <view class="navigator-arrow"></view>
 				    </view>
 				</picker>
 		      </view>
-		      <view class="navigator-arrow"></view>
 		    </view>
 		</view>
 

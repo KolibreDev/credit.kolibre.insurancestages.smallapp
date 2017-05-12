@@ -1,5 +1,6 @@
 {
-	"navigationBarTitleText": "擎天猪保险报价",
+	"navigationBarTitleText": "擎天猪车险报价",
 	"navigationBarTextStyle": "white",
-	"navigationBarBackgroundColor": "#ff973a"
+	"navigationBarBackgroundColor": "#ff973a",
+	"backgroundColor": "#ff973a"
 }

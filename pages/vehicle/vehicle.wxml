@@ -17,12 +17,12 @@
         <view class="col_hd">初登日期</view>
         <view class="col_bd">
           <picker mode="date" name="leaseStartTime" style="text-align:right;" value="{{form.leaseStartTime}}" bindchange="bindLeaseStartTime">
-            <view class="picker">
+            <view class="picker pickerContent">
               {{form.leaseStartTime}}
+              <view class="navigator-arrow"></view>
             </view>
           </picker>
         </view>
-        <view class="navigator-arrow"></view>
       </view>
       <view class="item">
         <view class="col_hd">品牌型号</view>
@@ -47,12 +47,12 @@
         <view class="col_hd">使用性质</view>
         <view class="col_bd">
           <picker bindchange="bindPickerChange" value="{{useArray[index].code}}" range="{{useArray}}" range-key="desc">
-            <view class="picker">
+            <view class="picker pickerContent">
               {{useArray[index].desc}}
+              <view class="navigator-arrow"></view>
             </view>
           </picker>
         </view>
-        <view class="navigator-arrow"></view>
       </view>
     </view>
     <view style="width:100%;padding: 20px 0">

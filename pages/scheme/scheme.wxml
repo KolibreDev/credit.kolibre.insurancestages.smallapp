@@ -1,5 +1,5 @@
 <view style="height:30px"></view>
-  <swiper current="{{currentIndex}}" bindchange="swpierChange">
+<swiper current="{{currentIndex}}" bindchange="swpierChange">
     <swiper-item>
       <view class="wrapperS">
         <view>
@@ -77,7 +77,9 @@
     <view></view>
   </view>
 </view>
-<view style="margin-top:20rpx;text-align:center" >
-  <button bindtap="apply" style="width: calc(100% - 80px); margin-left: 40px;" class="btn">确定</button>
+
+<!-- <button  style="margin-top:20rpx; width: calc(100% - 80px); margin-left: 40px;" class="btn">确定</button> -->
+<view style="width:100%;padding: 20px 0">
+    <button bindtap="apply" class="btn">确定</button>
 </view>
 <view style="height:10px"></view>

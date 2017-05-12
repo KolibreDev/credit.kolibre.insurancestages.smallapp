@@ -16,6 +16,7 @@ Page({
         biEndTime: null,
         // 交强险
         ciStartTime: null,
+        ciEndTime: null,
         isXianOpening: false,
     	isRenOpening: false,
     	companyText: '太平洋保险',  // 中国平安保险 中国人民保险
@@ -40,8 +41,9 @@ Page({
 			identifyNumber: app.globalData.quoteRequest.RelationUser[0].identifyNumber,
 			phone: app.globalData.quoteRequest.RelationUser[0].phone,
 			biStartTime: app.globalData.quoteRequest.BiStartTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
-			biEndTime: app.globalData.quoteRequest.BiEndTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
+			biEndTime: app.globalData.quoteRequest.BiEndTime.substring(0, app.globalData.quoteRequest.BiEndTime.length - 9),
 			ciStartTime: app.globalData.quoteRequest.CiStartTime.substring(0, app.globalData.quoteRequest.BiStartTime.length - 9),
+			ciEndTime: app.globalData.quoteRequest.CiEndTime.substring(0, app.globalData.quoteRequest.CiEndTime.length - 9),
 			responseInfo: app.globalData.quoteReponse,
 			type: app.globalData.quoteRequest.Type,
 			relationUser:  app.globalData.quoteRequest.RelationUser
@@ -74,7 +76,7 @@ Page({
 			if (parseInt(insItem.amount) == 0) {
 				insItem.amount = '';
 			}
-			if (parseInt(insItem.amount) > 0 && parseInt(insItem.amount) < 10000) {
+			else if (parseInt(insItem.amount) > 0 && parseInt(insItem.amount) < 10000) {
 				insItem.amount = '(' + insItem.amount + ')';
 			}
 			else {

@@ -145,6 +145,13 @@ Page({
         })
         return false;
     }
+    if (!wx.showLoading) {
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      });
+      return false;
+    }
     wx.showLoading({
       title: '数据提交中...'
     });
@@ -193,7 +200,6 @@ Page({
 
     app.postRequest(app.config.URLS.RENEWAL, {licenseNo:  app.globalData.quoteRequest.LicenseNo, cityCode: app.globalData.quoteRequest.CityCode },
         function(res) {
-          
           var resTest = res;
           if (res.succeeded ) {
             wx.hideLoading();

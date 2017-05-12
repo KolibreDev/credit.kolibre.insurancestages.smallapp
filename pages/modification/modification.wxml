@@ -1,31 +1,4 @@
 <view class="container">
-	<!-- <view class="normalHeader">
-		<view class="leftHeader">
-			<view class="icon">
-				<view class="iconBackground">
-					<image mode="widthFix" src="../../images/pinpai.png"></image>
-				</view>
-			</view>
-			
-			<view>{{licenseNo}}</view>
-		</view>
-		<view class="rightHeader">
-			<view  style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; height: 168rpx;">
-				<view style="">
-					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">车架号</view>
-					<text>{{vin}}</text>
-				</view>
-				<view style="">
-					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">发动机号</view>
-					<text>{{engine}}</text>
-				</view>
-				<view style="">
-					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">初登日期</view>
-					<text>{{enrollDate}}</text>
-				</view>
-			</view>
-		</view>
-	</view> -->
 	<view class="normalHeader">
 		<view class="topHeader">
 			<image mode="widthFix" src="{{companyUrl}}"></image>
@@ -93,23 +66,25 @@
 	      <view class="col_hd">起保日期</view>
 	      <view class="col_bd">
 	        <picker mode="date" id="bs" value="{{biStartTime}}" bindchange="bindStartDateChange">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			      {{biStartTime}}
+			       <view class="navigator-arrow down"></view>
 			    </view>
 			</picker>
 	      </view>
-	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
+	     
 	    </view>
 	    <view class="item itemNoBorder">
 	      <view class="col_hd">结束日期</view>
 	      <view class="col_bd">
 	        <picker mode="date" id="be" value="{{biEndTime}}" bindchange="bindStartDateChange">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			      {{biEndTime}}
+			      <view class="navigator-arrow down"></view>
 			    </view>
 			</picker>
 	      </view>
-	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
+	      
 	    </view>
 	    <view class="littleTitle">商业基本险</view>
 	    <view class="threeColumnItem">
@@ -119,12 +94,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="CLSSX" bindchange="bindPickerChange" value="{{insurances.CLSSX.index}}" range="{{insurances.CLSSX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.CLSSX.list[insurances.CLSSX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">全车盗抢险</view>
@@ -133,12 +108,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="QCDQX" bindchange="bindPickerChange" value="{{insurances.QCDQX.index}}" range="{{insurances.QCDQX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.QCDQX.list[insurances.QCDQX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">第三者责任险</view>
@@ -147,12 +122,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="DSZZRX" bindchange="bindPickerChange" value="{{insurances.DSZZRX.index}}" range="{{insurances.DSZZRX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.DSZZRX.list[insurances.DSZZRX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">驾驶员责任险</view>
@@ -161,12 +136,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="JSYZRX" bindchange="bindPickerChange" value="{{insurances.JSYZRX.index}}" range="{{insurances.JSYZRX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.JSYZRX.list[insurances.JSYZRX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 		<view class="threeColumnItem">
 	    	<view class="labelCol">车上乘客险</view>
@@ -175,12 +150,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="CSCKX" bindchange="bindPickerChange" value="{{insurances.CSCKX.index}}" range="{{insurances.CSCKX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.CSCKX.list[insurances.CSCKX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view style="margin-top: 0rpx; margin-bottom: 20rpx; height: 2rpx; border-top: 1px dashed #dadada; width: 100%">
 	    </view>
@@ -192,12 +167,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="CSHHX" bindchange="bindPickerChange" value="{{insurances.CSHHX.index}}" range="{{insurances.CSHHX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.CSHHX.list[insurances.CSHHX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 		<view class="threeColumnItem">
 	    	<view class="labelCol">玻璃险</view>
@@ -205,12 +180,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="BLX" bindchange="bindPickerChange" value="{{insurances.BLX.index}}" range="{{insurances.BLX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.BLX.list[insurances.BLX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">车辆自燃险</view>
@@ -219,12 +194,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="CLZRX" bindchange="bindPickerChange" value="{{insurances.CLZRX.index}}" range="{{insurances.CLZRX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.CLZRX.list[insurances.CLZRX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">涉水险</view>
@@ -233,12 +208,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="SSX" bindchange="bindPickerChange" value="{{insurances.SSX.index}}" range="{{insurances.SSX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.SSX.list[insurances.SSX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">指定专修厂险</view>
@@ -246,12 +221,12 @@
 	    	</view>
 	        <view class="inputCol">
 	          <picker id="ZXCX" bindchange="bindPickerChange" value="{{insurances.ZXCX.index}}" range="{{insurances.ZXCX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.ZXCX.list[insurances.ZXCX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">机动车损失保险无法找到第三方特约险</view>
@@ -259,12 +234,12 @@
 	    	</view>
 	        <view class="inputCol">
 	          <picker id="SFTYX" bindchange="bindPickerChange" value="{{insurances.SFTYX.index}}" range="{{insurances.SFTYX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.SFTYX.list[insurances.SFTYX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	    <view class="threeColumnItem">
 	    	<view class="labelCol">精神损害抚慰金责任险</view>
@@ -273,12 +248,12 @@
 	        </view>
 	        <view class="inputCol">
 	          <picker id="JSSHX" bindchange="bindPickerChange" value="{{insurances.JSSHX.index}}" range="{{insurances.JSSHX.list}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{insurances.JSSHX.list[insurances.JSSHX.index]}}
+			    	<view class="navigator-arrow down" style="top:16rpx;"></view>
 			    </view>
 			  </picker>
 	        </view>
-	        <view class="navigator-arrow down" style="padding-left: 30rpx; padding-top: 30rpx;"></view>
 	    </view>
 	</view>
 	<view class="wrapper">
@@ -290,23 +265,23 @@
 	      <view class="col_hd">起保日期</view>
 	      <view class="col_bd">
 	        <picker mode="date" id="cs" value="{{ciStartTime}}" bindchange="bindStartDateChange">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			      {{ciStartTime}}
+			      <view class="navigator-arrow down"></view>
 			    </view>
 			</picker>
 	      </view>
-	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
 	    </view>
 	    <view class="item itemNoBorder">
 	      <view class="col_hd">交强险(代缴车船税)</view>
 	      <view class="col_bd">
 			<picker id="JQX" bindchange="bindPickerChange" value="{{jqxIndex}}" range="{{jqxList}}">
-			    <view class="picker">
+			    <view class="picker pickerContent">
 			    	{{jqxList[jqxIndex]}}
+			    	<view class="navigator-arrow down"></view>
 			    </view>
 			  </picker>
 	      </view>
-	      <view class="navigator-arrow down" style="padding-left: 20rpx;"></view>
 	    </view>
 	</view>
 

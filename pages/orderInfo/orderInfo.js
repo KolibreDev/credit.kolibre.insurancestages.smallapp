@@ -16,7 +16,8 @@ Page({
     companyText: '太平洋保险',  // 中国平安保险 中国人民保险
     companyUrl: '',
     relationUser: [],
-    responseInfo: null
+    responseInfo: null,
+    perPayment: 0,
   },
   onLoad: function(options) {
     this.setData({
@@ -31,6 +32,10 @@ Page({
       phone: app.globalData.quoteRequest.RelationUser[0].phone,
       responseInfo: app.globalData.quoteReponse,
       relationUser:  app.globalData.quoteRequest.RelationUser
+    });
+    var perPayment = ((parseFloat(this.data.responseInfo.data.biPremium) + parseFloat(this.data.responseInfo.data.ciPremium) + parseFloat(this.data.responseInfo.data.tax)) / 12).toFixed(2);
+    this.setData({
+      perPayment: perPayment
     });
     if (app.globalData.quoteRequest.Company == 'PICC') {
       this.setData({
@@ -68,5 +73,12 @@ Page({
 	      isBeiOpening: !this.data.isBeiOpening
 	    });
     }
+  },
+  reminder: function(e) {
+    wx.showToast({
+      title: '工程师正在玩命上线中...',
+      image: '../../images/err.png',
+      duration: 2000
+    })
   }
 })

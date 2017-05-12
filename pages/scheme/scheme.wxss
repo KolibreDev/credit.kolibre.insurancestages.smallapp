@@ -15,7 +15,6 @@ swiper-item {
   margin-left: 80rpx;
   height: 880rpx;
   background-color: white;
-  /*box-shadow: 0 8px 19px 0 rgba(104, 76, 36, 0.15);*/
   border-radius: 10px;
   position: relative;
 }

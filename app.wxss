@@ -2,6 +2,9 @@
 form {
   width: 100%;
 }
+button::after {
+  border: none;
+}
 .container {
   height: 100%;
   display: flex;
@@ -104,6 +107,12 @@ picker {
 .picker {
   height: 100%;
   min-height: 54px;
+}
+.pickerContent.picker {
+   position: relative; padding-right: 20px;
+}
+picker .picker.pickerContent .navigator-arrow {
+  position: absolute; right: 0; top: 50%;
 }
 .lbNormal {
   border: 1px solid #BFBFBF;
@@ -355,6 +364,8 @@ image {
   color:#646464;
   align-items:flex-start;
   min-height:54px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 .labelCol{
   width: 50%; word-break:break-all;

@@ -1,48 +1,4 @@
 <view class="container">
-	<!-- <view class="normalHeader">
-		<view class="leftHeader">
-			<view class="icon">
-				<view class="iconBackground">
-					<image mode="widthFix" src="../../images/pinpai.png"></image>
-				</view>
-			</view>
-			<view>一汽丰田</view>
-			<view>沪A.RM1024</view>
-		</view>
-		<view class="rightHeader">
-			<view  style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; height: 168rpx;">
-				<view style="">
-					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">车架号</view>
-					<text>6L123405066723343</text>
-				</view>
-				<view style="">
-					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">发动机号</view>
-					<text>6L123405066723343</text>
-				</view>
-				<view style="">
-					<view style="width: 140rpx; display: inline-block; color: #ffe6d5">初登日期</view>
-					<text>2015.12.25</text>
-				</view>
-			</view>
-		</view>
-	</view>
-	<view class="wrapper" style="margin-top: 0; padding-bottom: 40rpx;">
-		<view class="userInfo">
-			<view class="halfTextArray">
-				<image src="../../images/ic_name_hl.png" style="vertical-align: middle;"></image>
-				<text style="vertical-align: middle;">王志锐</text>
-			</view>
-			<view class="halfTextArray">
-				<image src="../../images/ic_phone_hl.png" style="vertical-align: middle;"></image>
-				<text style="vertical-align: middle;">18888865339</text>
-			</view>
-		</view>
-		<view class="userInfo">
-			<image src="../../images/ic_card_hl.png" style="vertical-align: middle;"></image>
-			<text style="vertical-align: middle;">41123423456678999</text>
-		</view>
-	</view> -->
-
 	<view class="normalHeader">
 		<view class="topHeader">
 			<image mode="widthFix" src="{{companyUrl}}"></image>
@@ -64,23 +20,6 @@
 					</view>
 				</view>
 			</view>
-			<!-- <view style="display: flex; margin-bottom: 30rpx; ">
-				<view style="padding: 0 30rpx 0 40rpx;border-right:1px dashed #cccccc;line-height: 0">
-					<image mode="widthFix" src="../../images/pinpai.png" style="width: 100rpx; "></image>
-				</view>
-				<view style="height: 100rpx; width: 100%; padding-left: 30rpx;">
-					<view  style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; height: 100%; text-align: left">
-						<view>
-							<view style="width: 140rpx; font-size:14px;color:#646464;display: inline-block;">车牌号</view>
-							<text style="font-size:14px;color:#646464;">{{licenseNo}}</text>
-						</view>
-						<view>
-							<view style="width: 140rpx; font-size:14px;color:#646464;display: inline-block;">品牌型号</view>
-							<text style="font-size:14px;color:#646464;">{{brandName}}</text>
-						</view>
-					</view>
-				</view>
-			</view> -->
 			<view hidden="{{isGetData}}" style="padding-left: 40rpx; padding-right: 40rpx; width: 100%;">
 				<view style="padding-top: 30rpx; width: 100%; border-top:1px dashed #cccccc; font-size: 24rpx; text-align: left">
 					<view style="margin-bottom: 30rpx">
@@ -215,5 +154,16 @@
 	        </view>
 	    </view>
 	</view>
-
+	<view style="height: 300rpx">
+	</view>
+</view>
+<view class="fixBtnGroup" bindtap="reminder">
+	<view class="fixBtn left">
+		<view> <text style="font-size: 12px;">￥</text>{{perPayment}}/月 <text style="font-size: 12px;">（共12期）</text></view>
+		<view style="color:#fa9f23; letter-spacing: 2px;margin-top: 10rpx;">申请分期</view>
+	</view>
+	<view  class="fixBtn right">
+		<view> <text style="font-size: 12px;">￥</text>{{responseInfo.data.biPremium + responseInfo.data.ciPremium + responseInfo.data.tax}}</view>
+		<view style="letter-spacing: 2px;margin-top: 10rpx;">立即支付</view>
+	</view>
 </view>

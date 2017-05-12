@@ -1,5 +1,6 @@
 {
 	"navigationBarTitleText": "车险品牌报价区",
 	"navigationBarTextStyle": "white",
-	"navigationBarBackgroundColor": "#ffad5a"
+	"navigationBarBackgroundColor": "#ffad5a",
+	"backgroundColor": "#ffad5a"
 }
